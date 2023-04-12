@@ -8,6 +8,7 @@ docker-compose -f docker-compose.yaml up --build --force-recreate -d
 ### docker ps
 ### docker logs ${CONTAINER ID}
 
+
 # 카프카 테스트
 ### process console 접속
 docker exec -u root -it kafka-connector-docker-kafka-1 bash
