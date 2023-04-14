@@ -3,20 +3,22 @@
 ### Background Execution
 docker-compose -f docker-compose.yaml up -d
 ### Yaml file modifications, re-applying to containers
-docker-compose -f docker-compose.yaml up --build --force-recreate -d
-  
+docker-compose -f docker-compose.yaml up --build --force-recreate -d   
+
+
 # Check
 docker ps
-docker logs ${CONTAINER ID}
-  
+docker logs ${CONTAINER ID}   
+
+
 # Path
 ### Execution file path 
 /opt/bitnami/kafka/bin 
 ### Topic data path 
 ${BASE_DIR}/kafka-connector-docker/data/kafka/data/ : /bitnami/kafka/data
 ### Config file path 
-${BASE_DIR}/kafka-connector-docker/kafka/config : /opt/bitnami/kafka/config
-  
+${BASE_DIR}/kafka-connector-docker/kafka/config : /opt/bitnami/kafka/config   
+
 
 # Kafka test
 ### Connect process console
@@ -29,8 +31,8 @@ kafka-topics.sh --describe --topic my-topic --bootstrap-server localhost:9092
 ### Run consumer
 kafka-console-consumer.sh --topic my-topic --bootstrap-server localhost:9092
 ### Run producer
-kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092
-  
+kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092   
+
 
 # Reference URL
 ### Zookeeper Reference
