@@ -9,9 +9,12 @@ docker ps
 docker logs ${CONTAINER ID}
 
 # Path
-Execution file path = /opt/bitnami/kafka/bin
-Topic data path = ${BASE_DIR}/kafka-connector-docker/data/kafka/data/ : /bitnami/kafka/data
-Config file path = ${BASE_DIR}/kafka-connector-docker/kafka/config : /opt/bitnami/kafka/config
+### Execution file path 
+/opt/bitnami/kafka/bin 
+### Topic data path 
+${BASE_DIR}/kafka-connector-docker/data/kafka/data/ : /bitnami/kafka/data
+### Config file path 
+${BASE_DIR}/kafka-connector-docker/kafka/config : /opt/bitnami/kafka/config
 
 # Kafka test
 ### Connect process console
@@ -31,9 +34,11 @@ kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092
 ### Zookeeper Reference
 https://hub.docker.com/r/bitnami/zookeeper
 https://github.com/bitnami/containers/tree/main/bitnami/zookeeper
+
 ### Kafka Reference
 https://hub.docker.com/r/bitnami/kafka
 https://github.com/bitnami/containers/tree/main/bitnami/kafka
 https://kafka.apache.org/quickstart
+
 ### Kafka Connect
 https://kafka.apache.org/documentation/#connect
