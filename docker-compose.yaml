@@ -35,6 +35,8 @@ services:
       - ${BASE_DIR}/kafka/config/server.properties:/opt/bitnami/kafka/config/server.properties
       - ${BASE_DIR}/kafka/config/producer.properties:/opt/bitnami/kafka/config/producer.properties
       - ${BASE_DIR}/kafka/config/consumer.properties:/opt/bitnami/kafka/config/consumer.properties
+      - ${BASE_DIR}/kafka/config/connect-standalone.properties:/opt/bitnami/kafka/config/connect-standalone.properties
+      - ${BASE_DIR}/kafka/config/connect-file-source.properties:/opt/bitnami/kafka/config/connect-file-source.properties
     ports:
       - '9092:9092'
     depends_on:

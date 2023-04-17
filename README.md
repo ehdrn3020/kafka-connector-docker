@@ -34,6 +34,14 @@ kafka-console-consumer.sh --topic my-topic --bootstrap-server localhost:9092
 kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092   
 
 
+# Kafka connect
+### make sure to add plugin file in path
+/opt/bitnami/kafka/libs/connect-file-3.4.0.jar
+cd /home
+echo -e "foo\nbar" > test.txt
+bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+
+
 # Reference URL
 ### Zookeeper Reference
 https://hub.docker.com/r/bitnami/zookeeper
