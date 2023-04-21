@@ -25,21 +25,22 @@ ${BASE_DIR}/kafka-connector-docker/kafka/config : /opt/bitnami/kafka/config
 docker exec -u root -it kafka-connector-docker-kafka-1 bash
 
 ### Create kafka topic
-kafka-topics.sh --create --topic my-topic --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
-kafka-topics.sh --describe --topic my-topic --bootstrap-server localhost:9092
+kafka-topics.sh --create --topic connect-test --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1
+kafka-topics.sh --describe --topic connect-test --bootstrap-server localhost:9092
 
 ### Run consumer
-kafka-console-consumer.sh --topic my-topic --bootstrap-server localhost:9092
+kafka-console-consumer.sh --topic connect-test --bootstrap-server localhost:9092
 ### Run producer
-kafka-console-producer.sh --topic my-topic --bootstrap-server localhost:9092   
-kafka-console-producer.sh --topic connect-test --bootstrap-server localhost:9092  
+kafka-console-producer.sh --topic connect-test --bootstrap-server localhost:9092   
 
 
 # Kafka connect test
 ### make sure to add plugin file in path
-cd /home
-echo -e "foo\nbar" > test.txt
+echo "plugin.path=/opt/bitnami/kafka/libs/connect-file-3.4.0.jar"
+echo -e "foo\nbar\nsoo" > /home/test.txt
+kafka-console-consumer.sh --topic connect-test --bootstrap-server localhost:9092
 bin/connect-standalone.sh config/connect-standalone.properties config/connect-file-source.properties config/connect-file-sink.properties
+more test.sink.txt
 
 
 # Reference URL
