@@ -23,7 +23,10 @@ services:
       - app-tier
 
   kafka:
-    image: 'bitnami/kafka:3.4.0'
+#    image: 'bitnami/kafka:3.4.0'
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
