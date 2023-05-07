@@ -43,6 +43,10 @@ bin/connect-standalone.sh config/connect-standalone.properties config/connect-fi
 more test.sink.txt
 
 
+# Kafka direcotory connect
+confluent-hub install jcustenborder/kafka-connect-spooldir:latest --component-dir /confluent/component --worker-configs /confluent/conf/worker.properties
+
+
 # Reference URL
 ### Zookeeper Reference
 https://hub.docker.com/r/bitnami/zookeeper

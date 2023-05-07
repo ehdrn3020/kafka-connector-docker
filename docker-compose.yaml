@@ -8,12 +8,12 @@ services:
   zookeeper:
     image: 'bitnami/zookeeper:3.7.1'
     environment:
-      ZOO_SERVER_ID: 1
-      ZOO_PORT_NUMBER: 2181
-      ZOO_TICK_TIME: 2000
-      ZOO_INIT_LIMIT: 10
-      ZOO_SYNC_LIMIT: 5
-      ALLOW_ANONYMOUS_LOGIN: yes
+      - ZOO_SERVER_ID=1
+      - ZOO_PORT_NUMBER=2181
+      - ZOO_TICK_TIME=2000
+      - ZOO_INIT_LIMIT=10
+      - ZOO_SYNC_LIMIT=5
+      - ALLOW_ANONYMOUS_LOGIN=yes
     volumes:
       - ${BASE_DIR}/zookeeper/data:/bitnami
       - ${BASE_DIR}/zookeeper/config/zoo.cfg:/opt/bitnami/zookeeper/conf/zoo.cfg
